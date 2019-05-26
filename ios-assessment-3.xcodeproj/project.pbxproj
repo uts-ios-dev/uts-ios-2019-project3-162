@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A336183B229908D600CA4229 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A3361839229908D600CA4229 /* spark.png */; };
+		A336183C229908D600CA4229 /* Explosion.scnp in Resources */ = {isa = PBXBuildFile; fileRef = A336183A229908D600CA4229 /* Explosion.scnp */; };
 		A37BC7662296BD9C0058683F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BC7652296BD9C0058683F /* AppDelegate.swift */; };
 		A37BC7682296BD9C0058683F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A37BC7672296BD9C0058683F /* art.scnassets */; };
 		A37BC76A2296BD9C0058683F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37BC7692296BD9C0058683F /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A3361839229908D600CA4229 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		A336183A229908D600CA4229 /* Explosion.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Explosion.scnp; sourceTree = "<group>"; };
 		A37BC7622296BD9C0058683F /* ios-assessment-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-assessment-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37BC7652296BD9C0058683F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37BC7672296BD9C0058683F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				A37BC76E2296BD9E0058683F /* Assets.xcassets */,
 				A37BC7702296BD9E0058683F /* LaunchScreen.storyboard */,
 				A37BC7732296BD9E0058683F /* Info.plist */,
+				A3361839229908D600CA4229 /* spark.png */,
+				A336183A229908D600CA4229 /* Explosion.scnp */,
 			);
 			path = "ios-assessment-3";
 			sourceTree = "<group>";
@@ -125,6 +131,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A336183B229908D600CA4229 /* spark.png in Resources */,
+				A336183C229908D600CA4229 /* Explosion.scnp in Resources */,
 				A37BC7682296BD9C0058683F /* art.scnassets in Resources */,
 				A37BC7722296BD9E0058683F /* LaunchScreen.storyboard in Resources */,
 				A37BC76F2296BD9E0058683F /* Assets.xcassets in Resources */,
@@ -296,7 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hexuan.ios-assessment-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -314,7 +322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hexuan.ios-assessment-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
