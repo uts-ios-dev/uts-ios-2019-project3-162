@@ -9,6 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import AVFoundation // for sound player
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -21,11 +22,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var gamePos = SCNVector3Make(0.0, 0.0, 0.0)
     var scoreLbl: UILabel!
     
+    //for sound
+    var audioPlayer = AVAudioPlayer()
+    var selectedSoundFileName = "To the Moon"
+    
     var score = 0 {
         didSet {
-            scoreLbl.text = "\(score)"
+            scoreLbl.text = "🌟 \(score)"
         }
     }
+    
     
     // MARK: - View Controller Handling
     override func viewDidLoad() {
@@ -37,6 +43,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let scene = SCNScene(named: "art.scnassets/scene.scn")!
         sceneView.scene = scene
+        
+        playSound()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +58,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillDisappear(animated)
         
         sceneView.session.pause()
+        audioPlayer.stop()
     }
     
     // MARK: - Custom functions
@@ -73,8 +82,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         plane.physicsBody?.isAffectedByGravity = false
         plane.physicsBody?.applyForce(SCNVector3Make(0.0, 0.0, randSpeed), asImpulse: true)
         plane.runAction(planeAnimation)
-        
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(addPlane), userInfo: nil, repeats: false)
     }
     
     // MARK: - Scene Handling
@@ -89,7 +96,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             guard touchedNode.name == "plane" else { return }
             touchedNode.physicsBody?.isAffectedByGravity = true
             touchedNode.physicsBody?.applyTorque(SCNVector4Make(0.0, 0.3, 1.0, 1.0), asImpulse: true)
-            score += 1
+            score = score + 3
             
             let explosion = SCNParticleSystem(named: "Explosion.scnp", inDirectory: nil)!
             touchedNode.addParticleSystem(explosion)
@@ -160,5 +167,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         visNode.position = gamePos
         foundSurface = true
+    }
+    
+    /// Method to play background music
+    func playSound() {
+        let sourceURL = Bundle.main.url(forResource: selectedSoundFileName, withExtension: "mp3")
+        do{
+            try audioPlayer = AVAudioPlayer(contentsOf: sourceURL!)
+        } catch{
+            print(error)
+        }
+        audioPlayer.play()
     }
 }
